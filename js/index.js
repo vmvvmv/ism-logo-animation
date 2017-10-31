@@ -103,7 +103,7 @@ function initISMLogo() {
 
 	ismLogo.flatten = function (animate) {
 
-		var supWidth = 12;
+		var supWidth = -2;
 
 		for( obj of ismLogos ) { 
 			window[obj.key].I.attr({
@@ -179,9 +179,6 @@ function initISMLogo() {
 		}
 
 		times[0] *= 1.2;
-		// times[1] = times[0] * 1.2;
-		// times[2] = times[0] * 1.4;
-		// times[3] = times[0] * 1.2;
 
 		var i = 0;
 
