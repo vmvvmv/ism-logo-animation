@@ -23,20 +23,63 @@ window.log = function () {
 
 
 
-var ismLogos = [{key:'ismLogo', id: "ism-logo", color:'white'},{key:'ismLogoRed', id: "ism-logo-red", color:'red'},{key:'ismLogoBlue', id: "ism-logo-blue", color:'blue'},{key:'ismLogoGreen', id: "ism-logo-green", color:'green'}];
+var ismLogos = [{
+	key: 'ismLogo',
+	id: "ism-logo",
+	color: 'white'
+}, {
+	key: 'ismLogoRed1',
+	id: "ism-logo-red1",
+	color: '#FF6961'
+},  {
+	key: 'ismLogoRed2',
+	id: "ism-logo-red2",
+	color: '#FF5C5C'
+}, {
+	key: 'ismLogoRed3',
+	id: "ism-logo-red3",
+	color: 'red'
+}, {
+	key: 'ismLogoBlue1',
+	id: "ism-logo-blue1",
+	color: '#92A1CF	'
+}, {
+	key: 'ismLogoBlue2',
+	id: "ism-logo-blue2",
+	color: '#8C92AC'
+}, {
+	key: 'ismLogoBlue3',
+	id: "ism-logo-blue3",
+	color: 'blue'
+}, {
+	key: 'ismLogoGreen1',
+	id: "ism-logo-green1",
+	color: '#7CFC00'
+}, {
+	key: 'ismLogoGreen2',
+	id: "ism-logo-green2",
+	color: '#66FF00'
+}, {
+	key: 'ismLogoGreen3',
+	id: "ism-logo-green3",
+	color: 'green'
+}];
 
 //create Template from ismLogos
 
-console.log($('#container'));
 
 var container = $('#container');
 
 for( obj of ismLogos ) {
 
-	container.append('<svg id="ism-logo-red" class="' + obj.id + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 90" width="100%" height="100%" preserveAspectRatio="none"> <polyline id="ISM-M" vector-effect="non-scaling-stroke" points="377.5 87 377.5 6 683.5 87 994 6 994.5 87" /> <path id="ISM-S" vector-effect="non-scaling-stroke" d="M22.5,6c30.87,54.24,61.74,81,97,81,30,0,47.34-16.88,73-42.5,28.29-28.29,52.81-38.26,75-38.5,33.18-.36,66,27.53,99.5,81"> </path> <polyline id="ISM-I" vector-effect="non-scaling-stroke" points="5.5 87 5.5 45.5 5.5 6" /> </svg> ');
+	//console.log(obj);
+
+	container.append('<svg id="'+obj.id+'" class="' + 'ism-logo' + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 90" width="100%" height="100%" preserveAspectRatio="none"> <polyline id="ISM-M" vector-effect="non-scaling-stroke" points="377.5 87 377.5 6 683.5 87 994 6 994.5 87" /> <path id="ISM-S" vector-effect="non-scaling-stroke" d="M22.5,6c30.87,54.24,61.74,81,97,81,30,0,47.34-16.88,73-42.5,28.29-28.29,52.81-38.26,75-38.5,33.18-.36,66,27.53,99.5,81"> </path> <polyline id="ISM-I" vector-effect="non-scaling-stroke" points="5.5 87 5.5 45.5 5.5 6" /> </svg> ');
 
 }
 
+
+//console.log($('#container'));
 
 function initISMLogo() {
 
@@ -60,51 +103,53 @@ function initISMLogo() {
 
 	ismLogo.flatten = function (animate) {
 
+		var supWidth = 12;
+
 		for( obj of ismLogos ) { 
 			window[obj.key].I.attr({
-				strokeWidth: 5,
+				strokeWidth: 5 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
 			window[obj.key].I.transform('t-770,0');
 
 			window[obj.key].S.attr({
-				strokeWidth: 2,
+				strokeWidth: 2 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
 			window[obj.key].S.transform('s4,1 t100,0');
 
 			window[obj.key].S2.attr({
-				strokeWidth: 4,
+				strokeWidth: 4 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
 			window[obj.key].S2.transform('s-12,1 t-50,0');
 
 			window[obj.key].S3.attr({
-				strokeWidth: 6,
+				strokeWidth: 6 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
 			window[obj.key].S3.transform('s4,1 t200,0');
 
 			window[obj.key].M.attr({
-				strokeWidth: 4,
+				strokeWidth: 4 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
 			window[obj.key].M.transform('s5,0.2 t900,0');
 
 			window[obj.key].M2.attr({
-				strokeWidth: 5,
+				strokeWidth: 5 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
 			window[obj.key].M2.transform('s-8,1 t300,0');
 
 			window[obj.key].M3.attr({
-				strokeWidth: 5,
+				strokeWidth: 5 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
@@ -115,7 +160,7 @@ function initISMLogo() {
 
 	ismLogo.expand = function (t) {
 
-		var times = [];
+		var times = new Array( ismLogos.length ).fill(0);
 
 		times[0] = t;
 
@@ -123,12 +168,19 @@ function initISMLogo() {
 			times[0] = 1000;
 		}
 
+		for ( index in times ) {
+
+			times[index] = times[0] + times[index] * 0.01;
+			//console.log(times [index]);
+
+		}
+
 		times[1] = times[0] * 1.2;
 		times[2] = times[0] * 1.4;
 		times[3] = times[0] * 1.2;
 
 		var i = 0;
-		
+
 		for( obj of ismLogos ) { 
 
 			window[obj.key].M.animate({
