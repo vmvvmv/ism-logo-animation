@@ -21,422 +21,140 @@ window.log = function () {
 	}
 })());
 
+var ismLogos = [{key:'ismLogo', id: "ism-logo", color:'white'},{key:'ismLogoRed', id: "ism-logo-red", color:'red'},{key:'ismLogoBlue', id: "ism-logo-blue", color:'blue'},{key:'ismLogoGreen', id: "ism-logo-green", color:'green'}];
 
 
 function initISMLogo() {
 
-	window.ismLogo = {}
-	ismLogo.e = document.getElementById("ism-logo");
-	ismLogo.s = Snap(ismLogo.e);
 
-	ismLogo.I = Snap.select('#ISM-I');
-	ismLogo.S = Snap.select('#ISM-S');
-	ismLogo.S2 = ismLogo.S.clone();
-	ismLogo.S3 = ismLogo.S.clone();
-	ismLogo.M = Snap.select('#ISM-M');
-	ismLogo.M2 = ismLogo.M.clone();
-	ismLogo.M3 = ismLogo.M.clone();
-	//------------------------------------------------------------------------
-	window.ismLogoRed = {}
-	ismLogoRed.e = document.getElementById("ism-logo-red");
-	ismLogoRed.s = Snap(ismLogo.e);
+	for( obj of ismLogos ) { 
 
-	ismLogoRed.I = Snap.select('#ISM-I');
-	ismLogoRed.S = Snap.select('#ISM-S');
-	ismLogoRed.S2 = ismLogo.S.clone();
-	ismLogoRed.S3 = ismLogo.S.clone();
-	ismLogoRed.M = Snap.select('#ISM-M');
-	ismLogoRed.M2 = ismLogo.M.clone();
-	ismLogoRed.M3 = ismLogo.M.clone();
-	//----------------------------------------------------------------------
-	window.ismLogoBlue = {}
-	ismLogoBlue.e = document.getElementById("ism-logo-blue");
-	ismLogoBlue.s = Snap(ismLogo.e);
+		window[obj.key] = {}
+		window[obj.key].e = document.getElementById(obj.id);
+		window[obj.key].s = Snap(window[obj.key].e);
 
-	ismLogoBlue.I = Snap.select('#ISM-I');
-	ismLogoBlue.S = Snap.select('#ISM-S');
-	ismLogoBlue.S2 = ismLogo.S.clone();
-	ismLogoBlue.S3 = ismLogo.S.clone();
-	ismLogoBlue.M = Snap.select('#ISM-M');
-	ismLogoBlue.M2 = ismLogo.M.clone();
-	ismLogoBlue.M3 = ismLogo.M.clone();
-	//-----------------------------------------------------------------
-	window.ismLogoGreen = {}
-	ismLogoGreen.e = document.getElementById("ism-logo-green");
-	ismLogoGreen.s = Snap(ismLogo.e);
+		window[obj.key].I = Snap.select('#ISM-I');
+		window[obj.key].S = Snap.select('#ISM-S');
+		window[obj.key].S2 = window[obj.key].S.clone();
+		window[obj.key].S3 = window[obj.key].S.clone();
+		window[obj.key].M = Snap.select('#ISM-M');
+		window[obj.key].M2 = window[obj.key].M.clone();
+		window[obj.key].M3 = window[obj.key].M.clone();
 
-	ismLogoGreen.I = Snap.select('#ISM-I');
-	ismLogoGreen.S = Snap.select('#ISM-S');
-	ismLogoGreen.S2 = ismLogo.S.clone();
-	ismLogoGreen.S3 = ismLogo.S.clone();
-	ismLogoGreen.M = Snap.select('#ISM-M');
-	ismLogoGreen.M2 = ismLogo.M.clone();
-	ismLogoGreen.M3 = ismLogo.M.clone();
+	}
 
 
 	ismLogo.flatten = function (animate) {
 
-		ismLogo.I.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.I.transform('t-770,0');
+		for( obj of ismLogos ) { 
+			window[obj.key].I.attr({
+				strokeWidth: 5,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].I.transform('t-770,0');
 
-		ismLogo.S.attr({
-			strokeWidth: 2,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.S.transform('s4,1 t100,0');
+			window[obj.key].S.attr({
+				strokeWidth: 2,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].S.transform('s4,1 t100,0');
 
-		ismLogo.S2.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.S2.transform('s-12,1 t-50,0');
+			window[obj.key].S2.attr({
+				strokeWidth: 4,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].S2.transform('s-12,1 t-50,0');
 
-		ismLogo.S3.attr({
-			strokeWidth: 6,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.S3.transform('s4,1 t200,0');
+			window[obj.key].S3.attr({
+				strokeWidth: 6,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].S3.transform('s4,1 t200,0');
 
+			window[obj.key].M.attr({
+				strokeWidth: 4,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].M.transform('s5,0.2 t900,0');
 
+			window[obj.key].M2.attr({
+				strokeWidth: 5,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].M2.transform('s-8,1 t300,0');
 
-		ismLogo.M.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.M.transform('s5,0.2 t900,0');
+			window[obj.key].M3.attr({
+				strokeWidth: 5,
+				opacity: 0,
+				stroke: obj.color
+			});
+			window[obj.key].M3.transform('s14,0.2 t-100,0');
+		}
 
-		ismLogo.M2.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.M2.transform('s-8,1 t300,0');
-
-		ismLogo.M3.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogo.M3.transform('s14,0.2 t-100,0');
-		//-------------------------------------------------------------------------
-
-		ismLogoRed.I.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.I.transform('t-770,0');
-
-		ismLogoRed.S.attr({
-			strokeWidth: 2,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.S.transform('s4,1 t100,0');
-
-		ismLogoRed.S2.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.S2.transform('s-12,1 t-50,0');
-
-		ismLogoRed.S3.attr({
-			strokeWidth: 6,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.S3.transform('s4,1 t200,0');
-
-
-
-		ismLogoRed.M.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.M.transform('s5,0.2 t900,0');
-
-		ismLogoRed.M2.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.M2.transform('s-8,1 t300,0');
-
-		ismLogoRed.M3.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'red'
-		});
-		ismLogoRed.M3.transform('s14,0.2 t-100,0');
-		//-------------------------------------------------------
-
-		ismLogoBlue.I.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.I.transform('t-770,0');
-
-		ismLogoBlue.S.attr({
-			strokeWidth: 2,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.S.transform('s4,1 t100,0');
-
-		ismLogoBlue.S2.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.S2.transform('s-12,1 t-50,0');
-
-		ismLogoBlue.S3.attr({
-			strokeWidth: 6,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.S3.transform('s4,1 t200,0');
-
-
-
-		ismLogoBlue.M.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.M.transform('s5,0.2 t900,0');
-
-		ismLogoBlue.M2.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.M2.transform('s-8,1 t300,0');
-
-		ismLogoBlue.M3.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'blue'
-		});
-		ismLogoBlue.M3.transform('s14,0.2 t-100,0');
-		//--------------------------------------------------------      
-		ismLogoGreen.I.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'white'
-		});
-		ismLogoGreen.I.transform('t-770,0');
-
-		ismLogoGreen.S.attr({
-			strokeWidth: 2,
-			opacity: 0,
-			stroke: 'green'
-		});
-		ismLogoGreen.S.transform('s4,1 t100,0');
-
-		ismLogoGreen.S2.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'green'
-		});
-		ismLogoGreen.S2.transform('s-12,1 t-50,0');
-
-		ismLogoGreen.S3.attr({
-			strokeWidth: 6,
-			opacity: 0,
-			stroke: 'green'
-		});
-		ismLogoGreen.S3.transform('s4,1 t200,0');
-
-
-
-		ismLogoGreen.M.attr({
-			strokeWidth: 4,
-			opacity: 0,
-			stroke: 'green'
-		});
-		ismLogoGreen.M.transform('s5,0.2 t900,0');
-
-		ismLogoGreen.M2.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'green'
-		});
-		ismLogoGreen.M2.transform('s-8,1 t300,0');
-
-		ismLogoGreen.M3.attr({
-			strokeWidth: 5,
-			opacity: 0,
-			stroke: 'green'
-		});
-		ismLogoGreen.M3.transform('s14,0.2 t-100,0');
 	}
 
 	ismLogo.expand = function (t) {
 
+		var times = [];
+
+		times[0] = t;
+
 		if (!t) {
-			var t = 1000;
+			times[0] = 1000;
 		}
 
-		var t2 = t * 1.2;
-		var t3 = t * 1.4;
-		var t4 = t * 1.2;
-		//--------------------------------------------------------------
-		ismLogo.M.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t * 1.4, mina.easeinout);
-		ismLogo.M2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t * 1.3, mina.easeinout);
-		ismLogo.M3.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t * 1.5, mina.easeinout);
-		ismLogo.S.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t * 1.7, mina.easeinout, function () {});
-		ismLogo.S2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t * 1.2, mina.easeinout, function () {});
-		ismLogo.S3.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t * 1.4, mina.easeinout, function () {});
-		ismLogo.I.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t * 1.5, mina.easeinout, function () {});
-		//--------------------------------------------------------------  
-		ismLogoRed.M.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.4, mina.easeinout);
-		ismLogoRed.M2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.3, mina.easeinout);
-		ismLogoRed.M3.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.5, mina.easeinout);
-		ismLogoRed.S.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.7, mina.easeinout, function () {});
-		ismLogoRed.S2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.2, mina.easeinout, function () {});
-		ismLogoRed.S3.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.4, mina.easeinout, function () {});
-		ismLogoRed.I.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t2 * 1.5, mina.easeinout, function () {});
-		//--------------------------------------------------------------  
-		ismLogoBlue.M.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.4, mina.easeinout);
-		ismLogoBlue.M2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.3, mina.easeinout);
-		ismLogoBlue.M3.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.5, mina.easeinout);
-		ismLogoBlue.S.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.7, mina.easeinout, function () {});
-		ismLogoBlue.S2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.2, mina.easeinout, function () {});
-		ismLogoBlue.S3.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.4, mina.easeinout, function () {});
-		ismLogoBlue.I.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t3 * 1.5, mina.easeinout, function () {});
-		//--------------------------------------------------------------    
-		ismLogoGreen.M.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.4, mina.easeinout);
-		ismLogoGreen.M2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.3, mina.easeinout);
-		ismLogoGreen.M3.animate({
-			strokeWidth: 4,
-			opacity: 0.2,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.5, mina.easeinout);
-		ismLogoGreen.S.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.7, mina.easeinout, function () {});
-		ismLogoGreen.S2.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.2, mina.easeinout, function () {});
-		ismLogoGreen.S3.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.4, mina.easeinout, function () {});
-		ismLogoGreen.I.animate({
-			strokeWidth: 4,
-			opacity: 0.8,
-			transform: 's1,1 t0,0'
-		}, t4 * 1.5, mina.easeinout, function () {});
+		times[1] = times[0] * 1.2;
+		times[2] = times[0] * 1.4;
+		times[3] = times[0] * 1.2;
 
+		var i = 0;
+		
+		for( obj of ismLogos ) { 
+
+			window[obj.key].M.animate({
+				strokeWidth: 4,
+				opacity: 0.2,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.4, mina.easeinout);
+			window[obj.key].M2.animate({
+				strokeWidth: 4,
+				opacity: 0.8,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.3, mina.easeinout);
+			window[obj.key].M3.animate({
+				strokeWidth: 4,
+				opacity: 0.2,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.5, mina.easeinout);
+			window[obj.key].S.animate({
+				strokeWidth: 4,
+				opacity: 0.8,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.7, mina.easeinout, function () {});
+			window[obj.key].S2.animate({
+				strokeWidth: 4,
+				opacity: 0.8,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.2, mina.easeinout, function () {});
+			window[obj.key].S3.animate({
+				strokeWidth: 4,
+				opacity: 0.8,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.4, mina.easeinout, function () {});
+			window[obj.key].I.animate({
+				strokeWidth: 4,
+				opacity: 0.8,
+				transform: 's1,1 t0,0'
+			}, times[i] * 1.5, mina.easeinout, function () {});
+
+			i++;
+		}
 
 		Snap.animate(5000, 0, function (value) {
 			var v = {
