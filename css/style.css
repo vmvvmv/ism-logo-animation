@@ -1,0 +1,54 @@
+		html {
+  			box-sizing: border-box;
+		}
+
+		*, *:before, *:after {
+  			box-sizing: inherit;
+		}
+
+
+		body {
+			margin: 
+			0;
+			padding:20vh 10vw;
+			width:100%;
+			min-width: 300px;
+			background: black;
+		}
+
+		#ism-logo {
+			width:100%;
+			height: 30vh;
+			overflow: visible;
+			/*mix-blend-mode: darken;*/
+/*        mix-blend-mode: multiply; */
+
+		}
+    
+    .ism-logo {
+			
+			width:100%;
+			height: 30vh;
+			overflow: visible;
+      mix-blend-mode: screen;
+      background-blend-mode: darken; 
+			
+		}
+
+		.ism-logo--line, .ism-logo path, .ism-logo polyline #ism-logo path , #ism-logo polyline {
+			fill:none;
+			/*stroke:#FFF;*/
+			stroke-miterlimit:200;
+			stroke-linejoin:bevel;
+			stroke-width:2;
+			stroke-dasharray: 100;
+			stroke-dashoffset:3500;
+			/*mix-blend-mode: darken;*/
+		  background-color: black;
+		}
+/* 
+  mix-blend-mode: screen;
+  background-blend-mode: darken; */
+
+  
+ 
