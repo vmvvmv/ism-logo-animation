@@ -170,14 +170,18 @@ function initISMLogo() {
 
 		for ( index in times ) {
 
-			times[index] = times[0] + times[index] * 0.01;
+			if(index % 2 === 0)
+				times[index] = times[0] + times[index] * 0.2;
+			else
+				times[index] = times[0] - times[index] * 0.2;
 			//console.log(times [index]);
 
 		}
 
-		times[1] = times[0] * 1.2;
-		times[2] = times[0] * 1.4;
-		times[3] = times[0] * 1.2;
+		times[0] *= 1.2;
+		// times[1] = times[0] * 1.2;
+		// times[2] = times[0] * 1.4;
+		// times[3] = times[0] * 1.2;
 
 		var i = 0;
 
