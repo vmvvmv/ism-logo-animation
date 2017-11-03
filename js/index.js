@@ -109,7 +109,7 @@ function initISMLogo() {
 			window[obj.key].I.attr({
 				strokeWidth: 5 + supWidth,
 				opacity: 0,
-				stroke: obj.color
+				stroke: 'white'
 			});
 			window[obj.key].I.transform('t-770,0');
 
