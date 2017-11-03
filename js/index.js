@@ -1,69 +1,6 @@
-window.log = function () {
-	window.log.history = window.log.history || [];
-	window.log.history.push(arguments);
-	if (this.console) {
-		arguments.callee = arguments.callee.caller;
-		var a = [].slice.call(arguments);
-		(typeof console.log === "object" ? window.log.apply.call(console.log, console, a) : console.log.apply(console, a))
-	}
-};
-(function (b) {
-	function c() {}
-	for (var d = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,timeStamp,profile,profileEnd,time,timeEnd,trace,warn".split(","), a; a = d.pop();) {
-		b[a] = b[a] || c
-	}
-})((function () {
-	try {
-		console.log();
-		return window.console;
-	} catch (err) {
-		return window.console = {};
-	}
-})());
 
 
-
-var ismLogos = [{
-	key: 'ismLogo',
-	id: "ism-logo",
-	color: 'white'
-}, {
-	key: 'ismLogoRed1',
-	id: "ism-logo-red1",
-	color: '#FF6961'
-},  {
-	key: 'ismLogoRed2',
-	id: "ism-logo-red2",
-	color: '#FF5C5C'
-}, {
-	key: 'ismLogoRed3',
-	id: "ism-logo-red3",
-	color: 'red'
-}, {
-	key: 'ismLogoBlue1',
-	id: "ism-logo-blue1",
-	color: '#92A1CF	'
-}, {
-	key: 'ismLogoBlue2',
-	id: "ism-logo-blue2",
-	color: '#8C92AC'
-}, {
-	key: 'ismLogoBlue3',
-	id: "ism-logo-blue3",
-	color: 'blue'
-}, {
-	key: 'ismLogoGreen1',
-	id: "ism-logo-green1",
-	color: '#7CFC00'
-}, {
-	key: 'ismLogoGreen2',
-	id: "ism-logo-green2",
-	color: '#66FF00'
-}, {
-	key: 'ismLogoGreen3',
-	id: "ism-logo-green3",
-	color: 'green'
-}];
+var ismLogos = [{ key: 'ismLogo', id: "ism-logo", color: 'white' }, { key: 'ismLogoRed1', id: "ism-logo-red1", color: '#FF6961' },  { key: 'ismLogoRed2', id: "ism-logo-red2", color: '#FF5C5C' }, { key: 'ismLogoRed3', id: "ism-logo-red3", color: 'red' }, { key: 'ismLogoBlue1', id: "ism-logo-blue1", color: '#92A1CF	' }, { key: 'ismLogoBlue2', id: "ism-logo-blue2", color: '#8C92AC' }, { key: 'ismLogoBlue3', id: "ism-logo-blue3", color: 'blue' }, { key: 'ismLogoGreen1', id: "ism-logo-green1", color: '#7CFC00' }, { key: 'ismLogoGreen2', id: "ism-logo-green2", color: '#66FF00' }, { key: 'ismLogoGreen3', id: "ism-logo-green3", color: 'green' }];
 
 
 var container = $('#container');
@@ -167,7 +104,6 @@ function initISMLogo() {
 				times[index] = times[0] + times[index] * 0.2;
 			else
 				times[index] = times[0] - times[index] * 0.2;
-			//console.log(times [index]);
 
 		}
 
@@ -241,14 +177,10 @@ function initISMLogo() {
 
 	}
 
-	ismLogo.animationDone = function () {
-		log('logo done');
-	}
-
 
 
 	ismLogo.init = function () {
-		log('Init');
+		//log('Init');
 		ismLogo.flatten();
 		setTimeout(function () {
 			ismLogo.expand(2300)
