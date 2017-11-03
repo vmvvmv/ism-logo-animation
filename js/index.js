@@ -65,21 +65,14 @@ var ismLogos = [{
 	color: 'green'
 }];
 
-//create Template from ismLogos
-
 
 var container = $('#container');
 
 for( obj of ismLogos ) {
 
-	//console.log(obj);
-
 	container.append('<svg id="'+obj.id+'" class="' + 'ism-logo' + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 90" width="100%" height="100%" preserveAspectRatio="none"> <polyline id="ISM-M" vector-effect="non-scaling-stroke" points="377.5 87 377.5 6 683.5 87 994 6 994.5 87" /> <path id="ISM-S" vector-effect="non-scaling-stroke" d="M22.5,6c30.87,54.24,61.74,81,97,81,30,0,47.34-16.88,73-42.5,28.29-28.29,52.81-38.26,75-38.5,33.18-.36,66,27.53,99.5,81"> </path> <polyline id="ISM-I" vector-effect="non-scaling-stroke" points="5.5 87 5.5 45.5 5.5 6" /> </svg> ');
 
 }
-
-
-//console.log($('#container'));
 
 function initISMLogo() {
 
@@ -103,7 +96,7 @@ function initISMLogo() {
 
 	ismLogo.flatten = function (animate) {
 
-		var supWidth = -2;
+		var supWidth = -3;
 
 		for( obj of ismLogos ) { 
 			window[obj.key].I.attr({
@@ -114,7 +107,7 @@ function initISMLogo() {
 			window[obj.key].I.transform('t-770,0');
 
 			window[obj.key].S.attr({
-				strokeWidth: 2 + supWidth,
+				strokeWidth: 3 + supWidth,
 				opacity: 0,
 				stroke: obj.color
 			});
@@ -178,7 +171,7 @@ function initISMLogo() {
 
 		}
 
-		times[0] *= 1.2;
+		times[0] *= 0.8;
 
 		var i = 0;
 
@@ -223,20 +216,27 @@ function initISMLogo() {
 			i++;
 		}
 
-		Snap.animate(5000, 0, function (value) {
+		Snap.animate(10000, 0, function (value) {
+			//console.log(value);
 			var v = {
-				'stroke-dashoffset': value,
-				'stroke-dasharray': 3500 - value
+				'stroke-dashoffset': '25%',
+				'stroke-dasharray': 6000 - value
 			}
-			ismLogo.I.attr(v);
-			ismLogo.S.attr(v);
-			ismLogo.S2.attr(v);
-			ismLogo.S3.attr(v);
-			ismLogo.M.attr(v);
-			ismLogo.M2.attr(v);
-			ismLogo.M3.attr(v);
 
-		}, t * 2, mina.easeinout);
+			for( obj of ismLogos ) { 
+
+				window[obj.key].I.attr(v);
+				window[obj.key].S.attr(v);
+				window[obj.key].S2.attr(v);
+				window[obj.key].S3.attr(v);
+				window[obj.key].M.attr(v);
+				window[obj.key].M2.attr(v);
+				window[obj.key].M3.attr(v);
+
+			}	
+		
+
+		}, t * 3.5, mina.easeinout);
 
 
 	}
@@ -250,14 +250,10 @@ function initISMLogo() {
 	ismLogo.init = function () {
 		log('Init');
 		ismLogo.flatten();
-		// ismLogo.expand();
 		setTimeout(function () {
 			ismLogo.expand(2300)
 		}, 700);
-		// ismLogo.animateS_Final();
-		//  $(document).on('scroll', (event) => {
-		//   scroll = $(window).scrollTop();
-		// })
+
 	}
 
 	ismLogo.init();
