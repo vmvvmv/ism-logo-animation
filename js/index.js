@@ -1,69 +1,6 @@
-window.log = function () {
-	window.log.history = window.log.history || [];
-	window.log.history.push(arguments);
-	if (this.console) {
-		arguments.callee = arguments.callee.caller;
-		var a = [].slice.call(arguments);
-		(typeof console.log === "object" ? window.log.apply.call(console.log, console, a) : console.log.apply(console, a))
-	}
-};
-(function (b) {
-	function c() {}
-	for (var d = "assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,timeStamp,profile,profileEnd,time,timeEnd,trace,warn".split(","), a; a = d.pop();) {
-		b[a] = b[a] || c
-	}
-})((function () {
-	try {
-		console.log();
-		return window.console;
-	} catch (err) {
-		return window.console = {};
-	}
-})());
 
 
-
-var ismLogos = [{
-	key: 'ismLogo',
-	id: "ism-logo",
-	color: 'white'
-}, {
-	key: 'ismLogoRed1',
-	id: "ism-logo-red1",
-	color: '#FF6961'
-},  {
-	key: 'ismLogoRed2',
-	id: "ism-logo-red2",
-	color: '#FF5C5C'
-}, {
-	key: 'ismLogoRed3',
-	id: "ism-logo-red3",
-	color: 'red'
-}, {
-	key: 'ismLogoBlue1',
-	id: "ism-logo-blue1",
-	color: '#92A1CF	'
-}, {
-	key: 'ismLogoBlue2',
-	id: "ism-logo-blue2",
-	color: '#8C92AC'
-}, {
-	key: 'ismLogoBlue3',
-	id: "ism-logo-blue3",
-	color: 'blue'
-}, {
-	key: 'ismLogoGreen1',
-	id: "ism-logo-green1",
-	color: '#7CFC00'
-}, {
-	key: 'ismLogoGreen2',
-	id: "ism-logo-green2",
-	color: '#66FF00'
-}, {
-	key: 'ismLogoGreen3',
-	id: "ism-logo-green3",
-	color: 'green'
-}];
+var ismLogos = [{ key: 'ismLogo', id: "ism-logo", color: 'white' }, { key: 'ismLogoRed1', id: "ism-logo-red1", color: '#FF6961' },  { key: 'ismLogoRed2', id: "ism-logo-red2", color: '#FF5C5C' }, { key: 'ismLogoRed3', id: "ism-logo-red3", color: 'red' }, { key: 'ismLogoBlue1', id: "ism-logo-blue1", color: '#92A1CF	' }, { key: 'ismLogoBlue2', id: "ism-logo-blue2", color: '#8C92AC' }, { key: 'ismLogoBlue3', id: "ism-logo-blue3", color: 'blue' }, { key: 'ismLogoGreen1', id: "ism-logo-green1", color: '#7CFC00' }, { key: 'ismLogoGreen2', id: "ism-logo-green2", color: '#66FF00' }, { key: 'ismLogoGreen3', id: "ism-logo-green3", color: 'green' }];
 
 
 var container = $('#container');
@@ -94,7 +31,7 @@ function initISMLogo() {
 	}
 
 
-	ismLogo.flatten = function (animate) {
+	ismLogo.flatten = function () {
 
 		var supWidth = -3;
 
@@ -102,9 +39,10 @@ function initISMLogo() {
 			window[obj.key].I.attr({
 				strokeWidth: 5 + supWidth,
 				opacity: 0,
-				stroke: 'white'
+				stroke: 'white',
+
 			});
-			window[obj.key].I.transform('t-770,0');
+			window[obj.key].I.transform('t-400,0');
 
 			window[obj.key].S.attr({
 				strokeWidth: 3 + supWidth,
@@ -167,7 +105,7 @@ function initISMLogo() {
 				times[index] = times[0] + times[index] * 0.2;
 			else
 				times[index] = times[0] - times[index] * 0.2;
-			//console.log(times [index]);
+
 
 		}
 
@@ -175,52 +113,75 @@ function initISMLogo() {
 
 		var i = 0;
 
-		for( obj of ismLogos ) { 
+		for( obj of ismLogos ) {
+			
+			var v = 2;
 
 			window[obj.key].M.animate({
 				strokeWidth: 4,
 				opacity: 0.2,
-				transform: 's1,1 t0,0'
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.4, mina.easeinout);
 			window[obj.key].M2.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
-				transform: 's1,1 t0,0'
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.3, mina.easeinout);
 			window[obj.key].M3.animate({
 				strokeWidth: 4,
 				opacity: 0.2,
-				transform: 's1,1 t0,0'
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.5, mina.easeinout);
 			window[obj.key].S.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
-				transform: 's1,1 t0,0'
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.7, mina.easeinout, function () {});
 			window[obj.key].S2.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
-				transform: 's1,1 t0,0'
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.2, mina.easeinout, function () {});
 			window[obj.key].S3.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
-				transform: 's1,1 t0,0'
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.4, mina.easeinout, function () {});
 			window[obj.key].I.animate({
 				strokeWidth: 4,
-				opacity: 0.8,
-				transform: 's1,1 t0,0'
+				opacity: 1,
+				transform: 's1,1 t0,0',
+				// 'stroke-dashoffset':v,
+				// 'stroke-dasharray':v
 			}, times[i] * 1.5, mina.easeinout, function () {});
 
 			i++;
 		}
 
-		Snap.animate(10000, 0, function (value) {
+		Snap.animate(4500, 0, function (value) {
 			//console.log(value);
 			var v = {
-				'stroke-dashoffset': '25%',
-				'stroke-dasharray': 6000 - value
+				'stroke-dashoffset':'10%',
+				'stroke-dasharray':20
+			}
+
+			if (value === 0 ) {
+				var v = {
+					'stroke-dashoffset':0,
+					'stroke-dasharray':0
+				}
 			}
 
 			for( obj of ismLogos ) { 
@@ -235,20 +196,16 @@ function initISMLogo() {
 
 			}	
 		
+			//console.log(value);
+		}, t * 1.3, mina.easeinout);
 
-		}, t * 3.5, mina.easeinout);
 
-
-	}
-
-	ismLogo.animationDone = function () {
-		log('logo done');
 	}
 
 
 
 	ismLogo.init = function () {
-		log('Init');
+
 		ismLogo.flatten();
 		setTimeout(function () {
 			ismLogo.expand(2300)

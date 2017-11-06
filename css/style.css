@@ -20,8 +20,7 @@
 			width: 100%;
 			height: 30vh;
 			overflow: visible;
-			/*mix-blend-mode: darken;*/
-			/*        mix-blend-mode: multiply; */
+
 		}
 
 		.ism-logo {
@@ -46,6 +45,4 @@
 			/*mix-blend-mode: darken;*/
 			background-color: black;
 		}
-		/* 
-  mix-blend-mode: screen;
-  background-blend-mode: darken; */
+
