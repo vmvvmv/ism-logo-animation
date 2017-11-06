@@ -170,18 +170,40 @@ function initISMLogo() {
 			i++;
 		}
 
+		var f = window['ismLogo'].s.filter(Snap.filter.blur(5, 10));
+		var shadow =  window['ismLogo'].s.filter(Snap.filter.shadow(0, 2, 3));
+		var filterChild = f.node.firstChild;
+
 		Snap.animate(4500, 0, function (value) {
-			//console.log(value);
+
 			var v = {
 				'stroke-dashoffset':'10%',
 				'stroke-dasharray':20
 			}
 
 			if (value === 0 ) {
+			
 				var v = {
 					'stroke-dashoffset':0,
-					'stroke-dasharray':0
+					'stroke-dasharray':0,
+					//filter:f
 				}
+				Snap.animate( 30, 0, function( v ) { 
+					filterChild.attributes[0].value = v + ',' + v;  
+					var v = {
+						filter:f
+					}
+
+					window['ismLogo'].I.attr(v);
+					window['ismLogo'].S.attr(v);
+					window['ismLogo'].S2.attr(v);
+					window['ismLogo'].S3.attr(v);
+					window['ismLogo'].M.attr(v);
+					window['ismLogo'].M2.attr(v);
+					window['ismLogo'].M3.attr(v);
+
+				}, 2000 );
+									
 			}
 
 			for( obj of ismLogos ) { 
@@ -196,10 +218,9 @@ function initISMLogo() {
 
 			}	
 		
-			//console.log(value);
 		}, t * 1.3, mina.easeinout);
 
-
+		
 	}
 
 
