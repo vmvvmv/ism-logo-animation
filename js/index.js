@@ -118,42 +118,42 @@ function initISMLogo() {
 				opacity: 0.2,
 				transform: 's1,1 t0,0',
 				// 'stroke-dashoffset':v,
-			}, times[i] * 1.2, mina.easein);
+			}, times[i] * 1.2, mina.easeout);
 			window[obj.key].M2.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
 				transform: 's1,1 t0,0',
 
-			}, times[i] * 1.3, mina.easein);
+			}, times[i] * 1.3, mina.easeout);
 			window[obj.key].M3.animate({
 				strokeWidth: 4,
 				opacity: 0.2,
 				transform: 's1,1 t0,0',
 
-			}, times[i] * 1.3, mina.easein);
+			}, times[i] * 1.3, mina.easeout);
 			window[obj.key].S.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
 				transform: 's1,1 t0,0',
 
-			}, times[i] * 1.4, mina.easein, function () {});
+			}, times[i] * 1.4, mina.easeout, function () {});
 			window[obj.key].S2.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
 				transform: 's1,1 t0,0',
 
-			}, times[i] * 1.2, mina.easein, function () {});
+			}, times[i] * 1.2, mina.easeout, function () {});
 			window[obj.key].S3.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
 				transform: 's1,1 t0,0',
 
-			}, times[i] * 1.4, mina.easein, function () {});
+			}, times[i] * 1.4, mina.easeout, function () {});
 			window[obj.key].I.animate({
 				strokeWidth: 4,
 				opacity: 0.8,
 				transform: 's1,1 t0,0',
-			}, times[i] * 1.2, mina.easein, function () {});
+			}, times[i] * 1.2, mina.easeout, function () {});
 
 			i++;
 		}
@@ -172,7 +172,6 @@ function initISMLogo() {
 				var v = {
 					'stroke-dashoffset':0,
 					'stroke-dasharray':0,
-	
 				}
 						
 			}
@@ -189,7 +188,7 @@ function initISMLogo() {
 
 			}	
 		
-		}, t * 1.2, mina.easein);
+		}, t * 1.2, mina.easeout);
 
 		
 	}
